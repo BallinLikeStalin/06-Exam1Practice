@@ -191,7 +191,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -211,7 +211,6 @@ def problem2b(rect, n, delta, win):
         x2 = corner_2.x - (k * delta)
         y2 = corner_2.y + (k * delta)
 
-        print("x1: %d, y1: %d, x2: %d, y2: %d"%(x1, x2, y1, y2))
 
         rect2 = rg.Rectangle(rg.Point(x1, y1), rg.Point(x2, y2))
 
