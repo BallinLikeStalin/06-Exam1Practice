@@ -204,7 +204,7 @@ def problem2b(rect, n, delta, win):
     corner_1 = rect.get_upper_right_corner()
     corner_2 = rect.get_lower_left_corner()
     win.render()
-    for k in range (n):
+    for k in range(n):
         x1 = corner_1.x + (k * delta)
         y1 = corner_1.y - (k * delta)
 
