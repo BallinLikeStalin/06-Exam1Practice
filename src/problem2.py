@@ -2,8 +2,8 @@
 PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Eric Lee.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -102,7 +102,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -111,6 +111,24 @@ def problem2a(circle, rectangle, window):
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
 
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+
+    window.continue_on_mouse_click()
+    window.render()
+
+    corner_1 = rectangle.get_upper_right_corner()
+    corner_2 = rectangle.get_lower_left_corner()
+    line = rg.Line(corner_1, corner_2)
+    line.arrow = 'last'
+    line.attach_to(window)
+
+    window.continue_on_mouse_click()
+    window.render()
+
+    circle.fill_color = rectangle.outline_color
+
+    window.render()
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
     print()
@@ -181,6 +199,26 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+    rect.attach_to(win)
+
+    corner_1 = rect.get_upper_right_corner()
+    corner_2 = rect.get_lower_left_corner()
+    win.render()
+    for k in range (n):
+        x1 = corner_1.x + (k * delta)
+        y1 = corner_1.y - (k * delta)
+
+        x2 = corner_2.x - (k * delta)
+        y2 = corner_2.y + (k * delta)
+
+        print("x1: %d, y1: %d, x2: %d, y2: %d"%(x1, x2, y1, y2))
+
+        rect2 = rg.Rectangle(rg.Point(x1, y1), rg.Point(x2, y2))
+
+        rect2.attach_to(win)
+        win.render()
+
+
 
 
 # ----------------------------------------------------------------------
